@@ -82,6 +82,12 @@ numMissingValues <- length(which(is.na(activityData$steps)))
 * Number of missing values: 2304
 
 ##### 2. Devise a strategy for filling in all of the missing values in the dataset.
+##### Fill in missing values with mean per interval across all days.
+```r
+activityDataImputed <- activityData
+activityDataImputed$steps <- impute(activityData$steps, fun=mean)
+```
+
 ##### 3. Create a new dataset that is equal to the original dataset but with the missing data filled in.
 
 ```r
